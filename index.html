@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thinker AI - AI SEO Content Generator PHP Script</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<style>
+:root { --primary: #667eea; --secondary: #764ba2; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+.hero { background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; padding: 80px 0; }
+.hero h1 { font-size: 3rem; font-weight: 800; }
+.feature-icon { font-size: 2rem; }
+.preview-img { border-radius: 12px; box-shadow: 0 8px 32px rgba(0,0,0,0.12); max-width: 100%; }
+.pricing-card { border: none; border-radius: 16px; box-shadow: 0 4px 24px rgba(0,0,0,0.08); transition: transform .2s; }
+.pricing-card:hover { transform: translateY(-4px); }
+.btn-primary { background: linear-gradient(135deg, var(--primary), var(--secondary)); border: none; border-radius: 8px; padding: 12px 32px; }
+.screenshot { border-radius: 8px; box-shadow: 0 4px 16px rgba(0,0,0,0.1); border: 1px solid #eee; }
+footer { background: #1a1a2e; color: rgba(255,255,255,0.7); padding: 40px 0; }
+</style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark" style="background: #1a1a2e;">
+    <div class="container">
+        <a class="navbar-brand fw-bold" href="#">Thinker <span style="color: var(--primary);">AI</span></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="nav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="#features">Features</a></li>
+                <li class="nav-item"><a class="nav-link" href="#screenshots">Screenshots</a></li>
+                <li class="nav-item"><a class="nav-link" href="#pricing">Pricing</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<section class="hero text-center">
+    <div class="container">
+        <h1>AI Content Generator</h1>
+        <p class="lead mt-3 mb-4" style="font-size: 1.3rem; opacity: 0.9;">Generate SEO-optimized articles, blog posts, and marketing copy in seconds</p>
+        <p style="font-size: 1.1rem; margin-bottom: 30px;">Powered by OpenAI GPT | Multi-language | No database required</p>
+        <a class="btn btn-light btn-lg px-5 fw-bold" href="#pricing" style="border-radius: 8px;">💰 Starting at $29</a>
+    </div>
+</section>
+
+<section id="features" class="py-5">
+    <div class="container">
+        <h2 class="text-center fw-bold mb-5">Why Thinker AI?</h2>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card h-100 p-4 text-center border-0 shadow-sm">
+                    <div class="feature-icon">🤖</div>
+                    <h5 class="mt-3">AI-Powered Writing</h5>
+                    <p class="text-muted">Leverages OpenAI GPT-4 to create high-quality, original content that ranks in search engines.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 p-4 text-center border-0 shadow-sm">
+                    <div class="feature-icon">🌍</div>
+                    <h5 class="mt-3">10 Languages Supported</h5>
+                    <p class="text-muted">Generate content in English, Chinese, Japanese, Korean, Spanish, French, German, and more.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 p-4 text-center border-0 shadow-sm">
+                    <div class="feature-icon">📂</div>
+                    <h5 class="mt-3">No Database Needed</h5>
+                    <p class="text-muted">Flat-file storage means zero database setup. Upload and start generating immediately.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 p-4 text-center border-0 shadow-sm">
+                    <div class="feature-icon">🔑</div>
+                    <h5 class="mt-3">SEO Optimized</h5>
+                    <p class="text-muted">Each piece includes SEO titles, meta descriptions, and keyword-optimized content structure.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 p-4 text-center border-0 shadow-sm">
+                    <div class="feature-icon">🎨</div>
+                    <h5 class="mt-3">7 Content Types</h5>
+                    <p class="text-muted">Articles, blog posts, product descriptions, meta descriptions, social posts, emails, landing pages.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 p-4 text-center border-0 shadow-sm">
+                    <div class="feature-icon">⚡</div>
+                    <h5 class="mt-3">Clean Dashboard</h5>
+                    <p class="text-muted">Modern, responsive admin panel. Manage all your generated content in one place.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="screenshots" class="py-5 bg-light">
+    <div class="container">
+        <h2 class="text-center fw-bold mb-5">Screenshots</h2>
+        <div class="row g-4">
+            <div class="col-md-6">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <div style="background: linear-gradient(135deg, #667eea, #764ba2); color: white; border-radius: 8px; padding: 40px;">
+                            <h4>📊 Dashboard</h4>
+                            <p>Content statistics and recent items at a glance</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <div style="background: #1a1a2e; color: white; border-radius: 8px; padding: 40px;">
+                            <h4>✍️ Content Generator</h4>
+                            <p>AI-powered content creation interface</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <div style="background: #f8f9fa; border: 1px solid #ddd; border-radius: 8px; padding: 40px;">
+                            <h4>📁 Content History</h4>
+                            <p>Browse and manage all generated content</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <div style="background: linear-gradient(135deg, #0f2027, #203a43, #2c5364); color: white; border-radius: 8px; padding: 40px;">
+                            <h4>⚙️ Settings</h4>
+                            <p>Configure API keys and preferences</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="pricing" class="py-5">
+    <div class="container">
+        <h2 class="text-center fw-bold mb-5">Pricing</h2>
+        <div class="row justify-content-center">
+            <div class="col-md-6 col-lg-4">
+                <div class="pricing-card card p-4 text-center">
+                    <h5 class="text-muted">Regular License</h5>
+                    <h2 class="fw-bold" style="color: var(--primary);">$29</h2>
+                    <p class="text-muted">Use for a single end product</p>
+                    <hr>
+                    <ul class="list-unstyled text-start">
+                        <li class="mb-2">✓ Full PHP source code</li>
+                        <li class="mb-2">✓ All features included</li>
+                        <li class="mb-2">✓ Installation wizard</li>
+                        <li class="mb-2">✓ Documentation included</li>
+                        <li class="mb-2">✓ 6 months support</li>
+                    </ul>
+                    <a class="btn btn-primary w-100 mt-3" href="#">Buy Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="text-center">
+    <div class="container">
+        <p class="mb-0">Thinker AI — AI-Powered SEO Content Generator</p>
+        <p class="small mt-2">Available on CodeCanyon</p>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
