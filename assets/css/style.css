@@ -1,0 +1,9 @@
+/* Thinker AI - Additional Styles */
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+.generated-content h2 { color: #333; margin-top: 24px; font-size: 1.5rem; }
+.generated-content h3 { color: #555; margin-top: 20px; font-size: 1.25rem; }
+.generated-content p { line-height: 1.8; margin-bottom: 16px; color: #444; }
+.generated-content ul, .generated-content ol { margin-bottom: 16px; line-height: 1.8; }
+.generated-content img { max-width: 100%; border-radius: 8px; margin: 16px 0; }
+.generated-content blockquote { border-left: 4px solid #667eea; padding-left: 16px; margin: 16px 0; color: #666; font-style: italic; }
+@media print { .sidebar { display: none !important; } .main-content { margin-left: 0 !important; } }
