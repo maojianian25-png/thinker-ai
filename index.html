@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>自动发货 - 输入订单号下载</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; padding: 20px; display: flex; align-items: center; justify-content: center; }
+.card { background: white; border-radius: 16px; padding: 40px; max-width: 420px; width: 100%; box-shadow: 0 20px 60px rgba(0,0,0,0.15); text-align: center; }
+h1 { font-size: 22px; color: #333; margin-bottom: 8px; }
+.subtitle { color: #999; font-size: 14px; margin-bottom: 25px; }
+.input-group { margin: 15px 0; text-align: left; }
+.input-group label { font-size: 13px; color: #666; display: block; margin-bottom: 5px; }
+.input-group input { width: 100%; padding: 14px 16px; border: 2px solid #e0e0e0; border-radius: 10px; font-size: 16px; outline: none; transition: 0.2s; }
+.input-group input:focus { border-color: #667eea; }
+.btn { width: 100%; padding: 14px; background: linear-gradient(135deg, #667eea, #764ba2); color: white; border: none; border-radius: 10px; font-size: 16px; cursor: pointer; margin-top: 10px; }
+.btn:hover { opacity: 0.9; }
+.hidden { display: none; }
+#productList { margin-top: 20px; }
+.product-item { background: #f8f9fa; border-radius: 12px; padding: 20px; margin: 12px 0; text-align: left; display: flex; justify-content: space-between; align-items: center; }
+.product-item .info h3 { font-size: 15px; margin-bottom: 4px; }
+.product-item .info .price { color: #ff4757; font-weight: bold; font-size: 16px; }
+.product-item .info .desc { color: #999; font-size: 12px; }
+.dl-btn { background: #ff4757; color: white; padding: 8px 20px; border-radius: 8px; text-decoration: none; font-size: 13px; }
+.dl-btn:hover { opacity: 0.9; }
+.err { color: #ff4757; font-size: 13px; margin-top: 8px; }
+.success { color: #00b894; font-size: 14px; margin-top: 8px; }
+.help-text { font-size: 12px; color: #bbb; margin-top: 20px; line-height: 1.8; }
+</style>
+</head>
+<body>
+<div class="card" id="app">
+    <h1>📦 自动发货系统</h1>
+    <p class="subtitle">请输入闲鱼订单号后6位验证身份</p>
+    
+    <div class="input-group">
+        <label>订单号后6位</label>
+        <input type="text" id="orderInput" placeholder="例如：123456" maxlength="6" inputmode="numeric">
+    </div>
+    <button class="btn" onclick="verifyOrder()">✅ 验证并获取下载</button>
+    <div id="error" class="err hidden"></div>
+    
+    <div id="productList" class="hidden">
+        <p class="success">✅ 验证成功！请选择商品下载：</p>
+        <div id="products"></div>
+    </div>
+    
+    <div class="help-text">
+        已购买的用户请查看闲鱼聊天记录中的订单号<br>
+        每笔订单可下载对应商品3次
+    </div>
+</div>
+
+<script>
+// 已购买订单号列表（手动添加）
+const VALID_ORDERS = ['000000']; // 测试用
+
+// 商品列表
+const PRODUCTS = [
+    {
+        id: 'ai-prompts',
+        name: '🤖 AI提示词大师 v2.0',
+        price: '¥2.99',
+        desc: '100+精选ChatGPT提示词，覆盖10大场景',
+        file: 'ai-prompts-v1.0.zip',
+        codes: ['AI001'] // 备用下载码
+    },
+    {
+        id: 'resume',
+        name: '📄 精美简历模板包',
+        price: '¥4.99',
+        desc: '3款风格简历模板，适配各类岗位',
+        file: '简历模板包-v1.0.zip',
+        codes: ['RES001']
+    },
+    {
+        id: 'excel',
+        name: '📊 Excel函数公式大全',
+        price: '¥4.99',
+        desc: '100+函数详解+5个实用模板',
+        file: 'Excel函数公式大全-v1.0.zip',
+        codes: ['EXC001']
+    }
+];
+
+function verifyOrder() {
+    var input = document.getElementById('orderInput').value.trim();
+    var error = document.getElementById('error');
+    
+    if (input.length < 4) {
+        error.textContent = '请输入完整的订单号后6位';
+        error.classList.remove('hidden');
+        document.getElementById('productList').classList.add('hidden');
+        return;
+    }
+    
+    // Check if order is valid
+    if (VALID_ORDERS.indexOf(input) >= 0) {
+        error.classList.add('hidden');
+        showProducts();
+    } else {
+        error.textContent = '订单号未找到，请检查输入。已购买请联系卖家确认订单号。';
+        error.classList.remove('hidden');
+        document.getElementById('productList').classList.add('hidden');
+    }
+}
+
+function showProducts() {
+    var container = document.getElementById('products');
+    container.innerHTML = '';
+    
+    PRODUCTS.forEach(function(p) {
+        container.innerHTML += '<div class="product-item">' +
+            '<div class="info"><h3>' + p.name + '</h3>' +
+            '<div class="price">' + p.price + '</div>' +
+            '<div class="desc">' + p.desc + '</div></div>' +
+            '<a class="dl-btn" href="' + p.file + '" download>📥 下载</a>' +
+            '</div>';
+    });
+    
+    document.getElementById('productList').classList.remove('hidden');
+}
+</script>
+</body></html>
